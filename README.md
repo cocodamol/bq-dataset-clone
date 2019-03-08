@@ -20,7 +20,7 @@ https://stackoverflow.com/questions/32767245/how-to-best-handle-data-stored-in-d
 
 
 **Flow**
-- Under FROM_PROJECT, get datasets need to be cloned
+- Under FROM_PROJECT, get a list of datasets need to be cloned
 - For each one of the above datasets, extract all the BigQuery tables into a Cloud Storage bucket in the same region as the tables. (Recommend Avro format for best fidelity in data types and fastest loading speed.)
 - Run a storage transfer job to copy the extracted files from the starting location bucket to a bucket in the destination location (TO_BUCKET).
 - Load all the files into a BigQuery dataset located in the destination location under TO_PROJECT.
