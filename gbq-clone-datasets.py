@@ -37,7 +37,7 @@ def extract_tables(FROM_DATASET):
         job_config.destination_format = bigquery.DestinationFormat.AVRO
         extract_job = bq_client.extract_table(
             table.reference,
-            ['gs://{}/{}.avro'.format(FROM_BUCKET, table.table_id)],
+            ['gs://{}/{}-*.avro'.format(FROM_BUCKET, table.table_id)],
             location=FROM_LOCATION,  # Available in 0.32.0 library.
             job_config=job_config)  # Starts the extract job.
         extract_jobs.append(extract_job)
@@ -138,7 +138,7 @@ def load_tables(tables):
         job_config = bigquery.LoadJobConfig()
         job_config.source_format = bigquery.SourceFormat.AVRO
         load_job = bq_client.load_table_from_uri(
-            ['gs://{}/{}.avro'.format(TO_BUCKET, table.table_id)],
+            ['gs://{}/{}-*.avro'.format(TO_BUCKET, table.table_id)],
             dest_table,
             location=TO_LOCATION,  # Available in 0.32.0 library.
             job_config=job_config)  # Starts the load job.
