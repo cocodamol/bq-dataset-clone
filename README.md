@@ -10,10 +10,10 @@ https://stackoverflow.com/questions/32767245/how-to-best-handle-data-stored-in-d
 - Authentication
   
   https://cloud.google.com/docs/authentication/getting-started
-  (In the sample code I set environment variable for the storage transfer service account creds, and then explicitly specified BigQuery service account creds path - it's probably uncessary to do it twice. You can use just one service account if you want, just need to grant the right access level for both BigQuery and Cloud Storage in your gcloud console - IAM. you can do it in the web interface)
+  (In the sample code I set environment variable for the storage transfer service account creds, and then explicitly specified BigQuery service account creds path - it's probably uncessary to do it twice. You can use just one service account if you want, just need to grant the right role (admin will do) for both BigQuery and Cloud Storage in your gcloud console - IAM. you can do it in the web interface)
 
-- Make sure this service account has access to both projects.
-  To grant cross project access you just need to add this initial service account email to both projects:
+- Make sure this service account has permission to both projects.
+  To grant cross project permission you just need to add this initial service account email to both projects:
   https://stackoverflow.com/questions/35479025/cross-project-management-using-service-account
 
 - Update all the TODOs in the script
