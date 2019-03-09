@@ -37,7 +37,7 @@ def extract_tables(FROM_DATASET):
         job_config.destination_format = bigquery.DestinationFormat.AVRO
         extract_job = bq_client.extract_table(
             table.reference,
-            ['gs://{}/{}-*.avro'.format(FROM_BUCKET, table.table_id)],              # -* wildcard to deals with tables > 1GB
+            ['gs://{}/{}-*.avro'.format(FROM_BUCKET, table.table_id)],              # -* wildcard deals with tables > 1GB
             location=FROM_LOCATION,  # Available in 0.32.0 library.
             job_config=job_config)  # Starts the extract job.
         extract_jobs.append(extract_job)
